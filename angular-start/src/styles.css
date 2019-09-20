@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* vendor css */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-select.custom .ng-control {
+    min-height: 10px;
+    height: 10px;
+  }

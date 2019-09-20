@@ -1,0 +1,39 @@
+
+
+
+<form [formGroup]="productNewForm" (ngSubmit)="CreateProduct()">
+    <div class="card">
+        <div class="card-header">Product Entry </div>
+        <div class="card-body">
+     
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Product Name </label>
+        <div class="col-10">
+          <input class="form-control" type="text" formControlName="productName" placeholder="" />
+          <div *ngIf="productNewForm.get('productName').errors && productNewForm.get('productName').touched" class="invalid-status">Product Name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Category </label>
+        <div class="col-10">
+          <input class="form-control" type="text" formControlName="category" placeholder="" />
+          <div *ngIf="productNewForm.get('category').errors && productNewForm.get('category').touched" class="invalid-status " >Category is required</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Unit </label>
+        <div class="col-10">
+          <input class="form-control" type="text"size="30" formControlName="unit" placeholder="" />
+          <div *ngIf="productNewForm.get('unit').errors && productNewForm.get('unit').touched" class="invalid-status " >unit Date is required</div>
+        </div>
+      </div>
+      <div class="card-footer">
+           <button  type="submit"  [disabled]="!productNewForm.valid" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+</div>
+     
+    </form>
+      

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+/*Third Part library*/
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/alertifyjs/build/css/alertify.min.css";
+
+.container{
+    padding-top: 100px;
+}
+
+.invalid-status{
+    color: red;
+    font-size: 13px;
+}

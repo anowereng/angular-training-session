@@ -1,0 +1,81 @@
+
+<form [formGroup]="mrEntryForm" (ngSubmit)="CreateMr()">
+<p>You can provide custom property for display and selected value.</p>
+
+<div class="form-row" style="margin-top: 50px">
+          <div class="col-xs-12 col-12 col-md-3 form-group">
+            <label class="control-label">   Mr Date : </label>
+            <input type="text" class="form-control form-control-sm" formControlName="dtMr" >
+            <div *ngIf="mrEntryForm.get('dtMr').errors && mrEntryForm.get('dtMr').touched" class="invalid-status">MR Date  is required</div>
+          </div>
+          <div class="form-group col-md-3">
+              <label class="control-label">  Supplier : </label>
+              <input type="text" class="form-control form-control-sm" formControlName="SupplierId" >
+            <div *ngIf="mrEntryForm.get('SupplierId').errors && mrEntryForm.get('SupplierId').touched" class="invalid-status">Supplier Name is required</div>
+          </div>
+          <div class="form-group col-md-3">
+              <label class="control-label ">   Loading Date : </label>
+              <input type="text" class="form-control  form-control-sm"  formControlName="dtLoading" >
+              <div *ngIf="mrEntryForm.get('dtLoading').errors && mrEntryForm.get('dtLoading').touched" class="invalid-status">Loading Date is required</div>
+            </div>
+            <div class="form-group col-md-3">
+              <label class="control-label font-weight-bold">  Bin : </label>
+              <input type="text" class="form-control  form-control-sm"  formControlName="BinId" >
+            <div *ngIf="mrEntryForm.get('BinId').errors && mrEntryForm.get('BinId').touched" class="invalid-status">Bin is required</div>
+          </div>
+            <!-- <div class="form-group col-md-8">
+                <label class="control-label ">   Remarks  : </label>
+                <input type="text" class="form-control  form-control-sm"  formControlName="Remarks" >
+              </div> -->
+        </div>
+        <div class="col-md-6">
+                <button  type="button" class="btn btn-secondary btn-sm"  (click)="addItem()">Add</button>
+            </div>
+<div class="col-md-4">
+  <ng-select [items]="cities"
+            bindLabel="name"
+            bindValue="id"
+            [closeOnSelect]="true"
+            [searchable]="true"
+            class="adjuster" formControlName="BinId">  </ng-select>
+</div>
+          
+      <!-- {{mrEntryForm.controls.items.controls | json}} -->
+<div formArrayName="items">
+
+        <table class="table table-sm table-bordered">
+            <thead class="table-secondary" style="padding: 0">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+                <tbody>
+                    <!-- <tr *ngFor="let item of mrEntryForm.get('items'); let i=index" [formGroupName]="i" scope="row"> -->
+                        <tr *ngFor="let item of mrEntryForm.controls.items.controls; let i=index" [formGroupName]="i">
+                    <td>
+                            <ng-select [items]="cities"
+                            bindLabel="name"
+                            bindValue="id"
+                            class="adjuster"
+                            formControlName="ProductId" >
+                </ng-select>
+                    </td>
+                    <td>
+                        <input formControlName="UnitId" class="form-control form-control-sm"></td>
+                    <td>
+                        <input formControlName="Price"  class="form-control form-control-sm"></td>
+                        <td>
+                            <input formControlName="Qty"  class="form-control form-control-sm"></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+    <!-- <button type="submit" class="btn btn-secondary" [disabled]="!mrEntryForm.valid">Submit</button>  -->
+    <button type="submit" class="btn btn-secondary">Submit</button> 
+</form>
+<br>
+
+Selected city ID: {{selectedCityId | json}}

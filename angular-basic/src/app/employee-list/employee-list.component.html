@@ -1,0 +1,19 @@
+<p>employee-list works!</p>
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let x of data">
+      <span>Id: {{x.id}}</span>
+      <span>Name: {{x.name}}</span>
+    </li>
+</ul>
+
+<button (click)="getdata()">Get Data</button>
+
+
+<li *ngFor="let x of rowData">
+        <span>PostId: {{x.postId}}</span>
+        <span>id: {{x.id}}</span>
+        <span>name: {{x.name}}</span>
+        <span>email: {{x.email}}</span>
+        <span>body: {{x.body}}</span>
+      </li>
